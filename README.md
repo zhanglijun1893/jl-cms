@@ -32,6 +32,6 @@ JLCMS遵循Apache2开源协议发布，并提供免费使用。
 
 All rights reserved。
 
-JLCMS® 商标和著作权所有者为上海顶想信息科技有限公司。
+JLCMS® 商标和著作权所有者为君澜科技（北京）有限公司。
 
 更多细节参阅 [LICENSE.txt](LICENSE.txt)
