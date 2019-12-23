@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+* {outline: none}
+body{
+    background:url(../images/bg.png) repeat-x rgba(3, 29, 106, 0.8);
+}
+img {
+    vertical-align: middle;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input {
+    border: 1px solid #5eb0de;
+    padding: 6px 8px;
+    border-radius: 5px;
+}
+input:focus {
+    outline-style: none ;
+    border: 1px solid #1890ff;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 2px rgba(102,175,233,.6);
+}
+input:hover {
+    border:1px solid #A5C7FE;
+    -moz-box-shadow:0 0 1px #A5C7FE;
+    -webkit-box-shadow:0 0 1px #A5C7FE;
+    box-shadow:0 0 1px #A5C7FE;
+}
+button {
+    background: #034365;
+    background: linear-gradient(to right, #034365 0%, #001b33 100%);
+    box-shadow: 0 8px 16px #0a52ab;
+    transition: background 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+    width: 132px;
+    border: none;
+    line-height: 42px;
+    height: 42px;
+    border-radius: 42px;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+width: 800px;
+margin: 0 auto;
+color: #fff;
+font-size: 12px;
+line-height: 24px;
+}
+.header {
+width: 100%;
+text-align: center;
+padding: 20px 0 0;
+}
+.header img {
+width: 240px;
+}
+.header p {
+font-size: 20px;
+color: #fff;
+}
+.copyright {
+width: 100%;
+text-align: center;
+color: #ffffff;
+font-size: 12px;
+padding: 20px 0;
+}
+.content {
+    background-color: rgba(43, 74, 165, 0.8);
+}
+/*step1*/
+.pact {
+    color: #fff;
+    font-size: 12px;
+    line-height: 24px;
+    height: auto;
+    min-height: 300px;
+    margin: 20px 0;
+    overflow-y: auto;
+    border: 1px solid #67ABD2;
+    box-shadow: 0 0 5px #ccc;
+}
+.pact .pact-txt{
+    height: 400px;
+    margin: 20px;
+}
+.start-btn {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 0;
+}
+.start-btn a {
+    display: inline-block;
+    background: #034365;
+    background: linear-gradient(to right, #034365 0%, #001b33 100%);
+    box-shadow: 0 8px 16px #0a52ab;
+    transition: background 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+    width: 132px;
+    line-height: 42px;
+    height: 42px;
+    border-radius: 42px;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+/*step2*/
+.table_list {
+    width: 100%;
+}
+.table_list th {
+    font-size: 14px;
+}
+.table_list th, .table_list td {
+    border: 1px solid #67ABD2;
+    padding: 10px;
+    text-align: center;
+}
+.table_list th.th1 {
+    width: 120px;
+}
+.table_list th.th2 {
+    width: 140px;
+}
+.table_list th.th3 {
+    width: 100px;
+}
+.error {
+    color: yellow;
+}
+.error img {
+    width: 12px;
+    margin-right: 5px;
+}
+.p30 {
+    padding: 30px 0;
+}
+/*step3*/
+.table_data {
+    width: 100%;
+}
+.table_data th {
+    font-weight: normal;
+    line-height: 28px;
+    border: 1px solid #67ABD2;
+}
+.table_data td{
+    padding: 6px 20px;
+    border: 1px solid #67ABD2;
+}
+.table_data td span {
+    border-color: #40B3FF;
+    color: yellow;
+    line-height: 18px;
+    padding: 2px 10px 2px 0;
+    margin-left: 10px;
+}
+.content-title {
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+}
+/*消息*/
+.alert-message {
+    opacity:0;
+    left: 45%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 5px 48px 5px 48px;
+    border-radius: 4px;
+    background-color: #fff1f0;
+    border: 1px solid #ffa39e;
+    position: fixed;
+    top:0;
+    z-index: 999;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    color: rgba(0,0,0,0.65);
+    font-variant: tabular-nums;
+
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    word-wrap: break-word;
+}
+.jl-show {
+    opacity:1;
+    visibility:visible;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -o-transition:all 1s;
+    transform: translate3d(0,100px,0);
+}
+.step5 {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    margin: 30px 0;
+}
+.step5 .act {
+    margin: 30px 0;
+}
+.step5 .act a {
+    color: #ffffff;
+    font-size: 18px;
+}

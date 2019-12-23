@@ -1,0 +1,320 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #ffffff;
+    font-size: 14px;
+}
+* {outline: none;}
+a{background: transparent;text-decoration: none;outline: none;
+    color: rgba(0, 0, 0, 0.65);}
+h1, h2, h3, h4, h5, h6 {margin: 0;}
+ol, ul, dl {list-style: none;margin: 0;padding: 0;}
+.fl {float: left}
+.fr {float: right}
+.clearFix {zoom: 1}
+.clearFix::before,
+.clearFix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+img {vertical-align: middle;border-style: none;}
+section {
+    max-width: 1200px;
+    margin: auto;
+}
+/*header*/
+header {
+    background: rgba(3, 29, 106, 0.8);
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    top: 0;
+    display: inline-block;
+}
+header .header{
+    padding: 0 24px;
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+    will-change: transform;
+}
+header .header .logo {
+    transform: translate(0px, 0px);
+}
+header .header .logo img {
+    margin: 8px 0 8px 0;
+    width: 150px;
+}
+header .menu {
+    line-height: 62px;
+}
+header .menu li {
+    float: left;
+    padding: 0 20px;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+header .menu .active {
+    color: #1890ff;
+    border-bottom: 2px solid #1890ff;
+}
+header .menu .active a {
+    color: #1890ff;
+}
+header .menu li:hover {
+    border-bottom: 2px solid #1890ff;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+header .menu a:hover {
+    color: #1890ff;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+header .menu li a {
+    color: #ffffff;
+}
+.header-mobile-menu {
+    display: initial;
+}
+/*下拉框*/
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0,10px,0);
+}
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translate3d(0,0,0);
+    transition: all .3s ease 0s;
+}
+.dropdown:hover.dropdown a {
+    color: #1890ff;
+}
+.dropdown:hover.dropdown {
+    border-bottom: 2px solid #1890ff;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.dropdown-menu a {
+    color: #212529!important;
+    font-size: 14px!important;
+    line-height: 25px;
+}
+
+/* header end */
+/* footer*/
+/*页尾*/
+footer {
+    background: #031d6a;
+    overflow: hidden;
+    position: relative;
+    color: #999;
+}
+footer .footer {
+    padding: 85px 10px 50px 80px;
+    position: relative;
+    margin: auto;
+    will-change: transform;
+}
+footer .footer .row {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    color: #ffffff;
+}
+footer .footer .row h2 {
+    margin-bottom: 20px;
+}
+footer .footer .row .text {
+    line-height: 30px;
+}
+footer .footer .row .text a {
+    color: #ffffff;
+}
+footer .footer .logo {
+    max-width: 180px;
+}
+footer .copyright {
+    padding: 0 24px;
+    overflow: hidden;
+    transform: translate(0px, 0px);
+    opacity: 1;
+    width: 100%;
+    border-top: 1px solid rgba(233, 233, 233, 0.1);
+    position: relative;
+    margin: auto;
+    will-change: transform;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+}
+/* footer end*/
+
+/*分页*/
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+.pagination li {
+    display: inline-block;
+    margin: 0 2px;
+}
+.pagination li a {
+    color: #666;
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 6px 15px;
+}
+.pagination .active span {
+    border-color: #1184DA;
+    background: #1184DA;
+    color: #fff;
+
+    display: inline-block;
+    padding: 6px 15px;
+}
+
+/*移动端*/
+@media screen and (max-width: 767px) {
+    /*header*/
+    header .menu {
+        line-height: 40px;
+    }
+    header .menu li {
+        float: initial;
+    }
+    header .menu .active {
+        background-color: #1890ff;
+    }
+    header .menu .active a{
+        color: #ffffff;
+    }
+    .header-mobile-menu {
+        width: 16px;
+        height: 14px;
+        cursor: pointer;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        z-index: 100;
+    }
+    .header-mobile-menu em {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        margin-top: 4px;
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .header-mobile-menu :first-child {
+        margin-top: 0;
+    }
+    .header .open .header-mobile-menu em:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+    .header .open .header-mobile-menu em:nth-child(2) {
+        opacity: 0;
+    }
+    .header .open .header-mobile-menu em:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+    .header .menu {
+        height: 0;
+        overflow: hidden;
+        background: #031d6a;
+        position: relative;
+        left: 24px;
+        width: calc(100% + 48px);
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    .header .open .menu {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .header .menu a {
+        color: #fff;
+    }
+    /*下拉框*/
+    .dropdown {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .dropdown-menu {
+        float: none;
+        width: 100%;
+        padding: 0.5rem 0;
+        margin: 0.125rem 0 0;
+        border-radius: 0;
+    }
+    .dropdown:hover.dropdown {
+        padding: 0;
+    }
+    .dropdown:hover.dropdown a {
+        padding: 0 20px;
+    }
+    .dropdown-menu .show {
+        border-radius: 0;
+    }
+    .dropdown:hover .dropdown-menu {
+        width: 100%;
+        position: relative;
+    }
+    .dropdown:hover.dropdown a {
+        color: #ffffff;
+    }
+    /* header end */
+    /*footer*/
+    footer  .footer {
+        padding: 64px 24px 32px;
+    }
+    footer .footer .row {
+        float: inherit;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 32px;
+        padding: 0;
+    }
+    .footer .logo {
+        margin: 0 auto 24px;
+    }
+}
+

@@ -1,0 +1,39 @@
+{extend name="layout/main"}
+{block name="plugins"}
+<link href="{__HOME_TEMPLATES__}/css/list.css" rel="stylesheet"/>
+{/block}
+{block name="content"}
+
+<div class="list clearFix">
+    {if $model.file_path}
+    <div class="list-banner">
+        <img alt="" src="{:$model.file_path}">
+    </div>
+    {/if}
+    <section>
+        <div class="list-breadcrumb">{:$breadcrumb}</div>
+        <ul class="list-content">
+            {foreach $data as $key=>$item }
+            <li>
+                <div class="list-image">
+                    <a href="#">
+                        <img src="{:$item.images_path}">
+                    </a>
+                </div>
+                <div class="list-txt">
+                    <a href="{:url('view',['id'=>$item.id])}">{$item.title}</a>
+                    <span class="list-txt-span">
+                        {:clear_htm_substr($item.content,270)} ......
+                    </span>
+                    <div class="list-date">
+                        <span>上传时间：2019-07-31</span>
+                        <span>浏览量：224</span>
+                    </div>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+        {$data|raw}
+    </section>
+</div>
+{/block}

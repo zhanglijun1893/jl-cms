@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="description" content="{:getConfig()['meta_description']}">
+    <meta name="keywords" content="{:getConfig()['meta_keywords']}">
+    <meta name="apple-mobile-web-app-title" content="{:getConfig()['meta_title']}">
+    <title>{:getConfig()['meta_title']}</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
+    <script src="{__STATIC__}plugins/js/vue.min.js"></script>
+    <script src="{__STATIC__}plugins/js/axios.min.js"></script>
+    <link href="{__HOME_TEMPLATES__}css/base.css" rel="stylesheet"/>
+    {block name="plugins"}{/block}
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="header-wrapper">
+            <a href="{:url('/index')}" class="logo">
+                <img src="{:getConfig()['logo']}" alt="logo">
+            </a>
+            <div class="header-mobile-menu" onclick="shMenu();"><em></em><em></em><em></em></div>
+            <ul class="menu fr">
+                <li class="{if empty($active)} active {/if} "><a href="{:url('/index')}">首页</a></li>
+                {foreach :category() as $key=>$vo }
+                {if $vo.index_view==1 && $vo.display==0}
+                <li class="{if !empty($active) && $vo.en_name==$active} active {/if} {:empty($vo.children)?'':'dropdown'}">
+                    <a href="{if !empty($vo.children)} javascript:void(0) {else} {:url('list',['name'=>$vo.en_name])} {/if} ">
+                        {$vo.name}
+                    </a>
+                    {if !empty($vo.children)}
+                        <div class="dropdown-menu show" aria-labelledby="dropdown01">
+                            {foreach $vo.children as $k=>$v}
+                            <a class="dropdown-item" href="{:url('list',['name'=>$v.en_name])}">{$v.name}</a>
+                            {/foreach}
+                        </div>
+                    {/if}
+                </li>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</header>
+{block name="content"}{/block}
+<footer>
+    <section class="footer">
+        <div class="row">
+            <h2 class="logo">
+                <a href="{:url('/index')}">
+                    <img src="{:getConfig()['logo']}" width="100%" alt="logo">
+                </a>
+            </h2>
+            <div class="text">{:getConfig()['description']}</div>
+        </div>
+        <div class="row">
+            <h2>联系我们</h2>
+            <div class="text">{:getConfig()['address']}</div>
+        </div>
+        {foreach :getFooter() as $key=>$val}
+        <div class="row">
+            <h2>{$val.name}</h2>
+            {foreach $val.list as $k=>$v}
+            <div class="text">
+                <a href="{if !empty($v.url)} {$v.url} {else} {:url('view',['id'=>$v.id])} {/if}">
+                    {$v.title}
+                </a>
+            </div>
+            {/foreach}
+        </div>
+        {/foreach}
+
+        <div class="clearFix"></div>
+    </section>
+    <div class="copyright">
+        <span>©{:date("Y")} by
+            <a href="/" style="color: rgb(24, 144, 255);">{:getConfig()['name']}</a>
+            {:getConfig()['copyright']}
+        </span>
+    </div>
+</footer>
+{block name="script"}{/block}
+<script>
+    function shMenu() {
+        let arr = document.getElementsByClassName("header-wrapper");
+        let m = document.getElementsByClassName("menu");
+        let className = "open";
+        let reg = new RegExp('(^|\\s)' + className + '(\\s|$)');
+        if (reg.test(arr[0].className)) {
+            arr[0].classList.remove("open");
+            m[0].style.height = 0;
+        } else {
+            arr[0].classList.add("open");
+            m[0].style.height = "100%";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{extend name="layout/main"}
+{block name="plugins"}
+<link href="{__HOME_TEMPLATES__}css/index.css" rel="stylesheet"/>
+<link href="{__STATIC__}plugins/element/element.css" rel="stylesheet"/>
+<script src="{__STATIC__}plugins/element/element.js"></script>
+{/block}
+{block name="content"}
+<div id="app">
+    <div class="banner">
+        <img src="{__HOME_TEMPLATES__}images/banner1.png" alt="">
+    </div>
+    <div class="home-list-bg">
+        <div class="home-item clearFix">
+            <div class="home-item-title">
+                <div class="name">{{ news.name }}</div>
+                <div class="en_name">{{ news.en_name }}</div>
+            </div>
+            <div class="home-news">
+                <div class="home-item-news-list" v-for="item in news.content">
+                    <ul>
+                        <li>
+                            <div class="item-title">{{item.name}}</div>
+                            <em>{{item.en_name}}</em>
+                            <div class="text-list" v-for="it in item.content">
+                                <span class="i-title">{{it.title}}</span>
+                                <span class="date fr">{{it.update_at}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="home-list-bg clearFix">
+        <div class="home-item">
+            <div class="home-image">
+                <div class="home-item-title">
+                    <div class="name">{{download.name}}</div>
+                    <div class="en_name">{{download.en_name}}</div>
+                </div>
+                <ul class="home-img-list">
+                    <li v-for="item in download.content">
+                        <a :href="'{:url('view')}?id='+item.id" class="image">
+                            <img :src="item.images_path" :alt="item.title">
+                        </a>
+                        <p><a :href="'{:url('view')}?id='+item.id">{{item.title}}</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-list-bg clearFix">
+        <div class="home-item">
+            <div class="home-image">
+                <div class="home-item-title">
+                    <div class="name">{{ about.name }}</div>
+                    <div class="en_name">{{ about.en_name }}</div>
+                </div>
+                <div class="home-about-text">
+                    <block v-for='(content,index) in about.content'>
+                        <block v-if="index==0">
+                            <block v-html="content.content"></block>
+                        </block>
+                    </block>
+                </div>
+                <div class="home-about-img">
+                    <img :src="about.file_path" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            list: [],
+            about: {},
+            category: [],
+            ad: [],
+            download: [],
+            news: []
+        },
+        created() {
+            let self = this;
+            //banner
+            this.fetchData("{:url('api/index/getAd',['id'=>'5'])}").then(function (response) {
+                if (response.status && response.status === 200) {
+                    self.ad = response.data;
+                }
+            });
+            //新闻
+            this.fetchData("{:url('api/index/getNewsAll')}").then(function (response) {
+                if (response.status && response.status === 200) {
+                    self.news = response.data;
+                }
+            });
+            //关于我们
+            this.fetchData("{:url('api/index/getAbout')}").then(function (response) {
+                if (response.status && response.status === 200) {
+                    self.about = response.data;
+                }
+            });
+            //资料下载
+            this.fetchData("{:url('api/index/getDownload')}").then(function (response) {
+                if (response.status && response.status === 200) {
+                    self.download = response.data;
+                }
+            });
+        },
+        methods: {
+            fetchData(url, method) {
+                let self = this;
+                return new Promise((resolve, reject) => {
+                    axios({
+                        method: method,
+                        url: url,
+                    }).then(function (response) {
+                        //console.log(response);
+                        resolve(response.data);
+                    }).catch(function (error) {
+                        reject(error)
+                    });
+                });
+            },
+            go: function () {
+                let activeIndex = this.$refs.carousel.activeIndex;
+                window.open(this.ad[activeIndex].link)
+            }
+        }
+    });
+</script>
+{/block}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="description" content="{:getConfig()['meta_description']}">
+    <meta name="keywords" content="{:getConfig()['meta_keywords']}">
+    <meta name="apple-mobile-web-app-title" content="{:getConfig()['meta_title']}">
+    <title>{:getConfig()['meta_title']}</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
+    <script src="{__STATIC__}plugins/js/vue.min.js"></script>
+    <script src="{__STATIC__}plugins/js/axios.min.js"></script>
+    <link href="{__HOME_TEMPLATES__}css/base.css" rel="stylesheet"/>
+    {block name="plugins"}{/block}
+</head>
+<body>
+<div class="top-logo">
+    <section>
+        <a href="{:url('/')}" class="logo fl">
+            <img src="{__HOME_TEMPLATES__}images/logo_red.png" alt="">
+        </a>
+        <div class="tel fr">
+            <img src="{__HOME_TEMPLATES__}images/tel-red.png" alt="">
+            {:getConfig()['tel']}
+        </div>
+    </section>
+</div>
+<header>
+    <section>
+    <div class="header">
+        <div class="header-wrapper">
+            <ul class="menu">
+                <li class="{if empty($active)} active {/if} "><a href="{:url('/index')}">首页</a></li>
+                {foreach :category() as $key=>$vo }
+                {if $vo.index_view==1 && $vo.display==0}
+                <li class="{if !empty($active) && $vo.en_name==$active} active {/if} {:empty($vo.children)?'':'dropdown'}">
+                    <a href="{if !empty($vo.children)} javascript:void(0) {else} {:url('list',['name'=>$vo.en_name])} {/if} ">
+                        {$vo.name}
+                    </a>
+                    {if !empty($vo.children)}
+                    <div class="dropdown-menu show" aria-labelledby="dropdown01">
+                        {foreach $vo.children as $k=>$v}
+                        <a class="dropdown-item" href="{:url('list',['name'=>$v.en_name])}">{$v.name}</a>
+                        {/foreach}
+                    </div>
+                    {/if}
+                </li>
+                {/if}
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+    </section>
+</header>
+{block name="content"}{/block}
+<footer>
+    <section class="footer">
+        <div class="row">
+            <h2 class="logo"><img src="{__HOME_TEMPLATES__}/images/logo_red.png" width="100%" alt="img"></h2>
+            <div class="text">{:getConfig()['description']}</div>
+        </div>
+        <div class="row">
+            <h2>联系我们</h2>
+            <div class="text">{:getConfig()['address']}</div>
+        </div>
+        {foreach :getFooter() as $key=>$val}
+        <div class="row">
+            <h2>{$val.name}</h2>
+            {foreach $val.list as $k=>$v}
+            <div class="text">
+                <a href="{if !empty($v.url)} {$v.url} {else} {:url('view',['id'=>$v.id])} {/if}">
+                    {$v.title}
+                </a>
+            </div>
+            {/foreach}
+        </div>
+        {/foreach}
+        <div class="clearFix"></div>
+    </section>
+    <div class="copyright">
+        <span>©{:date("Y")} by
+            <a href="/" style="color: rgb(24, 144, 255);">{:getConfig()['name']}</a>
+            {:getConfig()['copyright']}
+        </span>
+    </div>
+</footer>
+<style>
+
+</style>
+<script type="text/javascript">
+    function shMenu() {
+        let arr = document.getElementsByClassName("header-wrapper");
+        let m = document.getElementsByClassName("menu");
+        let className = "open";
+        let reg = new RegExp('(^|\\s)' + className + '(\\s|$)');
+        if (reg.test(arr[0].className)) {
+            arr[0].classList.remove("open");
+            m[0].style.height = 0;
+        } else {
+            arr[0].classList.add("open");
+            m[0].style.height = "100%";
+        }
+    }
+</script>
+{block name="script"}{/block}
+</body>
+</html>

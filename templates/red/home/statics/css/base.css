@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+}
+* {
+    outline: none;
+}
+a{
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.65);
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+ol, ul, dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fl {float: left}
+.fr {float: right}
+.clearFix {zoom: 1}
+.clearFix::before,
+.clearFix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+section {
+    max-width: 1000px;
+    margin: auto;
+}
+/*logo*/
+.top-logo {
+    height: 90px;
+    line-height: 90px;
+}
+.top-logo img {
+    width: 240px;
+}
+.top-logo .tel {
+    height: 90px;
+    line-height: 90px;
+    font-size: 30px;
+    color: rgba(169, 33, 25, 1);
+}
+.top-logo .tel img {
+    width: 50px;
+}
+/*header*/
+header {
+    background: rgba(169, 33, 25, 1);
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    top: 0;
+    display: inline-block;
+    text-align: center;
+}
+header .header{
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+.header-wrapper {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: -5px;
+}
+header .menu {
+    line-height: 62px;
+}
+header .menu li {
+    float: left;
+    padding: 0 70px;
+}
+header .menu .active {
+    color: #ffffff;
+    background: rgba(65, 15, 22, 0.6);
+    font-weight: bold;
+}
+header .menu li a {
+    color: #ffffff;
+    font-size: 15px;
+}
+header .menu .active a {
+
+}
+header .menu li:hover {
+    background: rgba(65, 15, 22, 0.6);
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+header .menu a:hover {
+    /*color: #1890ff;*/
+    font-weight: bold;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.header-mobile-menu {
+    display: initial;
+}
+/*下拉框*/
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0,10px,0);
+}
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translate3d(0,0,0);
+    transition: all .3s ease 0s;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.dropdown-menu a {
+    color: #212529!important;
+    font-size: 14px!important;
+    line-height: 25px;
+}
+/*页尾*/
+footer {
+    background: #031d6a;
+    overflow: hidden;
+    position: relative;
+    color: #999;
+}
+footer .footer {
+    color: #ffffff;
+    padding: 85px 10px 50px 80px;
+    position: relative;
+    margin: auto;
+    will-change: transform;
+}
+footer .footer .row {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+}
+footer .footer .row h2 {
+    margin-bottom: 20px;
+}
+footer .footer .row .text {
+    line-height: 30px;
+}
+footer .footer .row .text a {
+    color: #ffffff;
+}
+footer .footer .logo {
+    max-width: 180px;
+}
+footer .copyright {
+    padding: 0 24px;
+    overflow: hidden;
+    transform: translate(0px, 0px);
+    opacity: 1;
+    width: 100%;
+    border-top: 1px solid rgba(233, 233, 233, 0.1);
+    position: relative;
+    margin: auto;
+    will-change: transform;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+}
+/* footer end*/

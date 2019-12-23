@@ -1,0 +1,78 @@
+/*列表共用*/
+.list {
+    min-height: 450px;
+    margin-bottom: 50px;
+}
+.list-breadcrumb {
+    padding: 20px 0;
+}
+.list .list-banner {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+.list .list-banner img{
+    width: 100%;
+}
+/*单页*/
+.page {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+.page h1 {
+    font-size: 35px;
+    font-weight: 400;
+}
+.page .page-source {
+    margin-top: 10px;
+}
+.page .page-source span{
+    margin-right: 15px;
+}
+.page .content {
+    text-align: justify;
+    line-height: 35px;
+    margin-top: 35px;
+    min-height: 350px;
+}
+/*列表*/
+.list .list-content li {
+    border-bottom: 1px solid #E6E6E6;
+    overflow: hidden;
+    padding: 12px 0 12px 0;
+}
+.list .list-content li .list-image {
+    float: left;
+    width: 200px;
+    height: 160px;
+    border: 1px solid #e9e9e9;
+    overflow: hidden;
+    background: url('../images/no-images.png') no-repeat 45px;
+    margin-right: 25px;
+}
+.list .list-content li .list-image img {
+    width: 100%;
+}
+.list .list-content li .list-txt {
+    color: #999;
+}
+.list .list-content li .list-txt a{
+    display: block;
+    font-size: 18px;
+    color: #333;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+.list .list-content li .list-txt a:hover {
+    color: #1890ff;
+}
+.list .list-content li .list-txt .list-txt-span {
+    display: block;
+    height: 105px;
+    line-height: 25px;
+}
+.list-date span {
+    margin-right: 15px;
+}
+

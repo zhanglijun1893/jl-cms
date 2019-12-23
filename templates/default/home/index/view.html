@@ -1,0 +1,48 @@
+{extend name="layout/main"}
+{block name="plugins"}
+<link href="{__HOME_TEMPLATES__}/css/list.css" rel="stylesheet"/>
+<style>
+    .page {
+        padding: 20px;
+        width: 100%;
+    }
+    .page h1 {
+        text-align: center;
+    }
+    .page .content {
+        text-align: justify;
+        line-height: 35px;
+    }
+    .page-date {
+        border-left: 3px solid #2384D5;
+        background: #f3f3f3;
+        margin: 15px 0;
+        padding: 10px 15px;
+        font-size: 14px;
+        color: #666;
+    }
+    .page-date span {
+        margin-right: 15px;
+    }
+</style>
+{/block}
+{block name="content"}
+<section>
+    <div class="list-breadcrumb">
+        首页 > 资料下载
+    </div>
+    <div class="page">
+        <h1>{:$page.title}</h1>
+        <div class="page-date">
+            <span>作者：{$page.author}</span>
+            <span>发布时间：{$page.create_at}</span>
+            <span>浏览量：{$page.browse_num}</span>
+        </div>
+        <div class="content">
+            {:$page.content}
+        </div>
+    </div>
+</section>
+<div class="clearFix"></div>
+<div style="margin-bottom: 100px"></div>
+{/block}

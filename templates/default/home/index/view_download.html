@@ -1,0 +1,92 @@
+{extend name="layout/main"}
+{block name="plugins"}
+<link href="{__HOME_TEMPLATES__}/css/list.css" rel="stylesheet"/>
+<style>
+    .page {
+        padding: 20px;
+        width: 100%;
+    }
+    .page .page-header {
+        background-color: #f8f8f8;
+        padding: 10px;
+        overflow: hidden;
+    }
+    .page .page-header .page-img {
+        width: 200px;
+        height: 180px;
+        margin-right: 30px;
+    }
+    .page .page-header .page-date {
+        margin-top: 5px;
+        float: left;
+        text-align: left;
+    }
+    .page .page-header .page-date span {
+        color: #999;
+    }
+    .page .page-header img {
+        width: 100%;
+    }
+    .page .page-header .page-date .page-download-btn {
+        background-color: #FF6900;
+        border-color: #FF6900;
+        color: #fff;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        padding: 5px 20px;
+        font-size: 14px;
+        background-image: none;
+        border-style: solid;
+        outline: none;
+    }
+    .page .page-menu {
+        border-bottom: 1px solid #eaeaea;
+    }
+    .page .page-menu p {
+        border-bottom: 1px solid #156EB8;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        margin-bottom: -1px;
+        font-size: 18px;
+        color: #999;
+    }
+    .content {
+        margin-top: 20px;
+        line-height: 30px;
+    }
+
+</style>
+{/block}
+{block name="content"}
+<section>
+    <div class="list-breadcrumb">{:$breadcrumb}dasfsdf</div>
+    <div class="page">
+        <div class="page-header">
+            <div class="page-img fl">
+                {if $page.images_path}
+                <img src="{:$page.images_path}" alt="">
+                {/if}
+            </div>
+            <div class="page-date">
+                <h1>{$page.title}</h1>
+                <span>作者：{$page.author}</span>
+                <span>发布时间：{$page.create_at}</span>
+                <span>浏览量：{$page.browse_num}</span>
+                <p><button class="page-download-btn">下载地址</button></p>
+
+            </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="page-menu">
+            <p>详细介绍</p>
+        </div>
+        <div class="content">
+            {:$page.content}
+        </div>
+    </div>
+</section>
+<div class="clearFix"></div>
+<div style="margin-bottom: 100px"></div>
+{/block}

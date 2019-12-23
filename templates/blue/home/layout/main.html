@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="description" content="{:getConfig()['meta_description']}">
+    <meta name="keywords" content="{:getConfig()['meta_keywords']}">
+    <meta name="apple-mobile-web-app-title" content="{:getConfig()['meta_title']}">
+    <title>{:getConfig()['meta_title']}</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="{__HOME_TEMPLATES__}css/base.css" rel="stylesheet"/>
+    {block name="plugins"}{/block}
+</head>
+<body>
+
+<div class="top-nav">
+    <section>
+        <div class="login-info">欢迎来到{:getConfig()['name']}</div>
+        <ul>
+            <li><i>
+                <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="mobile" width="1em" height="1em"
+                     fill="currentColor" aria-hidden="true">
+                    <path fill="#1890ff"
+                          d="M744 64H280c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h464c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64zm-8 824H288V136h448v752z"></path>
+                    <path fill="#e6f7ff"
+                          d="M288 888h448V136H288v752zm224-142c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40 17.9-40 40-40z"></path>
+                    <path fill="#1890ff" d="M472 786a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"></path>
+                </svg>
+            </i><span>手机版</span>
+            </li>
+        </ul>
+    </section>
+</div>
+<div class="clearFix"></div>
+<header>
+    <section>
+        <a href="{:url('/index')}" class="logo fl">
+            <img src="{__HOME_TEMPLATES__}/images/logo-blue.jpg" alt="">
+        </a>
+        <div class="tel fr">{:getConfig()['tel']}</div>
+    </section>
+</header>
+
+<div class="menu">
+    <section>
+        <ul>
+            <li class="{if empty($active)} active {/if} "><a href="{:url('/index')}">首页</a></li>
+            {foreach :category() as $key=>$vo }
+            {if $vo.index_view==1 && $vo.display==0}
+            <li class="{if !empty($active) && $vo.en_name==$active} active {/if} {:empty($vo.children)?'':'dropdown'}">
+                <a href="{if !empty($vo.children)} javascript:void(0) {else} {:url('list',['name'=>$vo.en_name])} {/if} ">
+                    {$vo.name}
+                </a>
+                {if !empty($vo.children)}
+                <div class="dropdown-menu show" aria-labelledby="dropdown01">
+                    {foreach $vo.children as $k=>$v}
+                    <a class="dropdown-item" href="{:url('list',['name'=>$v.en_name])}">{$v.name}</a>
+                    {/foreach}
+                </div>
+                {/if}
+            </li>
+            {/if}
+            {/foreach}
+        </ul>
+    </section>
+</div>
+{block name="banner"}{/block}
+{block name="content"}{/block}
+
+<div class="clearFix"></div>
+<footer>
+    <section class="footer">
+        <div class="row">
+            <h2 class="logo"><img src="{:getConfig()['logo']}" width="100%" alt="img"></h2>
+            <div class="text">{:getConfig()['description']}</div>
+        </div>
+        <div class="row">
+            <h2>联系我们</h2>
+            <div class="text">{:getConfig()['address']}</div>
+        </div>
+        {foreach :getFooter() as $key=>$val}
+        <div class="row">
+            <h2>{$val.name}</h2>
+            {foreach $val.list as $k=>$v}
+            <div class="text">
+                <a href="{if !empty($v.url)} {$v.url} {else} {:url('view',['id'=>$v.id])} {/if}">
+                    {$v.title}
+                </a>
+            </div>
+            {/foreach}
+        </div>
+        {/foreach}
+
+        <div class="clearFix"></div>
+    </section>
+    <div class="copyright">
+        <span>©{:date("Y")} by
+            <a href="{:url('/index')}" style="color: rgb(24, 144, 255);">{:getConfig()['name']}</a>
+            {:getConfig()['copyright']}
+        </span>
+    </div>
+</footer>
+</body>
+</html>

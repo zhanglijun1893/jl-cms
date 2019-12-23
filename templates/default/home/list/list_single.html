@@ -1,0 +1,26 @@
+{extend name="layout/main"}
+{block name="plugins"}
+<link href="{__HOME_TEMPLATES__}css/list.css" rel="stylesheet"/>
+{/block}
+{block name="content"}
+<div class="list">
+    {if $model.file_path}
+    <div class="list-banner">
+        <img alt="" src="{:$model.file_path}">
+    </div>
+    {/if}
+    <section>
+        <div class="list-breadcrumb">{:$breadcrumb}</div>
+        <div class="page">
+            <h1>{:$page.title}</h1>
+            <div class="page-source">
+                {if $page.author}<span> 来源：{:$page.author} </span>{/if}
+                <span>{:$page.update_at}</span>
+            </div>
+            <div class="content">
+                {:$page.content}
+            </div>
+        </div>
+    </section>
+</div>
+{/block}
