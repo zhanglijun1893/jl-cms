@@ -1,0 +1,165 @@
+body {
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #676a6c;
+    overflow-x: hidden;
+}
+ol, ul {list-style: none outside none}
+.fl {float: left}
+.fr {float: right}
+.clearFix::before,
+.clearFix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearFix {zoom: 1}
+/*content*/
+.wrapper {padding: 20px}
+.wrapper-content {padding: 15px}
+/*背景*/
+.gray-bg {background-color: #f3f3f4}
+/*table*/
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    background-color: #F5F5F6;
+    border-bottom-width: 1px;
+}
+/*button*/
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+/*搜索框*/
+.description {
+    border: 1px solid #dddddd;
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+.description .title_name {
+    background-color: #FFF;
+    /*color: #2a8bcc;*/
+    /*background-color: #f3f3f4;*/
+    position: absolute;
+    top: -19px;
+    left: 20px !important;
+    padding: 5px 20px;
+    font-size: 16px;
+}
+.description .info {
+    margin: 20px 0 10px 20px;
+    line-height: 24px;
+}
+.description .info input, select {
+    border-radius: 4px !important;
+    margin: -5px 10px 0 0;
+}
+.description .info button {
+    margin: -5px 0 0 0;
+}
+.description .create-btn {
+    margin: -5px 25px 0 0;
+}
+.description .col-sm-2 {
+    padding: 0;
+    margin: 0 5px;
+}
+/*搜索框 END*/
+/* button */
+.btn-primary {
+    background-color: #2d8cf0;
+    border-color: #2d8cf0;
+    outline:none!important;
+    text-transform: none!important;
+}
+.btn-primary:hover {
+    background-color: #57a3f3;
+    border-color: #57a3f3;
+}
+.btn-primary:focus{
+    background: #57a3f3!important;
+    border-color: #57a3f3;
+}
+.btn-primary:active {
+    border-color: #57a3f3!important;
+}
+/*table*/
+.ibox-op{
+    background-color: #ffffff;
+    color: inherit;
+    padding: 10px 20px 1px 20px;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+    margin-top: -5px;
+}
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    /*-o-border-image: none;
+    border-image: none;*/
+    border-style: solid solid none;
+    border-width: 1px 0px;
+}
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    /*-o-border-image: none;*/
+    /*border-image: none;*/
+    border-style: solid solid none;
+    border-width: 4px 0px 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 28px;
+}
+.ibox-title h5 {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    /*float: left;*/
+}
+.ibox-line {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+}
+.table :focus {outline:none!important}
+.table button{margin-right: 5px}
+
+/*input tag begin*/
+.tags {display: inline-block;padding: 4px 6px;color: #777;vertical-align: middle;
+    background-color: #FFF;border: 1px solid #d5d5d5;width: 100%;height: 80px;}
+.tags .tag {vertical-align: baseline;white-space: nowrap;background-color: #91b8d0;
+    color: #FFF;text-shadow: 1px 1px 1px rgba(0,0,0,.15);padding: 5px 15px 5px 5px;
+    margin-right: 3px;-webkit-transition: all .2s;-o-transition: all .2s;transition: all .2s;}
+.tags input[type=text], .tags input[type=text]:focus {border: none;display: inline;outline: 0;
+    margin: 0;padding: 0;line-height: 18px;-webkit-box-shadow: none;box-shadow: none;width: 100%;}
+.tags .tag .close {font-size: 15px;opacity: 1;filter: alpha(opacity=100);color: #FFF;text-shadow: none;
+    float: none;position: absolute;width: 18px;margin-top: 3px;text-align: center;}
+/*input tag ent*/
+
+
